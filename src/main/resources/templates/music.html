@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MyMusic</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src = "/js/music.js" ></script>
+</head>
+<body>
+    <h1 style="align-content: center">Music</h1>
+    <!--/*@thymesVar id="getMusicInfo" type="com.my.music.controller.MusicController"*/-->
+    <ul th:each="music : ${getMusicInfo}">
+        <li th:text="${music.id}"></li>
+        <li th:text="${music.name}"></li>
+        <li th:text="${music.singer}"></li>
+        <li th:text="${music.type}"></li>
+        <li th:text="${music.path}"></li>
+    </ul>
+</body>
+</html>
