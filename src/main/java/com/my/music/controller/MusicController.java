@@ -16,10 +16,10 @@ public class MusicController {
     @Autowired
     MusicService musicService;
 
-    @RequestMapping("/music")
+    @RequestMapping("/main")
     public String findMusic(ModelMap modelMap){
         modelMap.addAttribute("getMusicInfo",musicService.getMusic());
-        return "music.html";
+        return "main.html";
     }
 
     @RequestMapping("/allMusic")
