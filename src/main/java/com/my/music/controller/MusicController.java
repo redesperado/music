@@ -1,6 +1,7 @@
 package com.my.music.controller;
 
 import com.my.music.service.MusicService;
+import com.my.music.service.WordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,9 +16,13 @@ public class MusicController {
 
     @Autowired
     MusicService musicService;
+    
+    @Autowired
+    WordService wordService;
 
     @RequestMapping("/main")
-    public String findMusic(ModelMap modelMap){
+    public String findMusic(ModelMap modelMap) throws Exception{
+        modelMap.addAttribute("getWordInfo",wordService.getWords());
         modelMap.addAttribute("getMusicInfo",musicService.getMusic());
         return "main.html";
     }

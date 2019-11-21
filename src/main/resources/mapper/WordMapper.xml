@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.my.music.dao.WordDao">
+
+    <select id="selectWords" resultType="java.util.Map">
+        SELECT * FROM words ;
+    </select>
+
+    <select id="selectCnByEn" parameterType="String" resultType="com.my.music.bean.WordBean">
+        SELECT * FROM words WHERE en = #{en};
+    </select>
+    
+    <insert id="insertWord" parameterType="com.my.music.bean.WordBean">
+        INSERT INTO words (en, properties, cn) VALUES (#{en},#{properties},#{cn});
+    </insert>
+
+</mapper>
