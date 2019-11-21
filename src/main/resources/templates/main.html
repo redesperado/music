@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src = "/js/main.js" ></script>
+    <style>
+        body{
+            background: darkgray;
+        }
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 60%;
+        }
+        #slideImages{
+            width: 70&;
+        }
+        .deadLine{
+            font-size: 30px;
+            color: crimson;
+            margin-top: -5px;
+            margin-bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+    <!--  轮播  -->
+    <div class="container" id = "slideImages">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- 指示符 -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <!-- 轮播图片 -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://static.runoob.com/images/mix/img_fjords_wide.jpg" >
+                </div>
+                <div class="carousel-item">
+                    <img src="https://static.runoob.com/images/mix/img_nature_wide.jpg" >
+                </div>
+                <div class="carousel-item">
+                    <img src="https://static.runoob.com/images/mix/img_mountains_wide.jpg" >
+                </div>
+            </div>
+
+            <!-- 左右切换按钮 -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+        </div>
+    </div>
+    <!--  选项卡  -->
+    <div class="container">
+        <h2>选项卡切换</h2>
+        <br>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home">音乐</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu1">倒计时</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu2">Other</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br>
+                <h3>Music</h3>
+                <!--/*@thymesVar id="getMusicInfo" type="com.my.music.controller.MusicController"*/-->
+                <table class="table table-dark table-hover">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>歌名</th>
+                        <th>歌手</th>
+                        <th>类型</th>
+                        <th>路径</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="music : ${getMusicInfo}">
+                        <td th:text="${music.id}"></td>
+                        <td th:text="${music.name}"></td>
+                        <td th:text="${music.singer}"></td>
+                        <td th:text="${music.type}"></td>
+                        <td th:text="${music.path}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="menu1" class="container tab-pane fade"><br>
+                <h3>2019 CET-4</h3>
+                <div class="card bg-secondary text-white">
+                    <div class="card-body">
+                        <div class="form-inline">
+                            <p style="margin-bottom: 0px">距离四级考试还有</p>
+                            <p class = "deadLine" id = "cet4"></p>
+                            <p style="margin-bottom: 0px">天</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>2019 CET-6</h3>
+                <div class="card bg-secondary text-white">
+                    <div class="card-body">
+                        <div class="form-inline">
+                            <p style="margin-bottom: 0px">距离六级考试还有</p>
+                            <p class = "deadLine" id = "cet6"></p>
+                            <p style="margin-bottom: 0px">天</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>2020 研究生考试</h3>
+                <div class="card bg-secondary text-white">
+                    <div class="card-body">
+                        <div class="form-inline">
+                            <p style="margin-bottom: 0px">距离研究生考试还有</p>
+                            <p class = "deadLine" id = "pqe"></p>
+                            <p style="margin-bottom: 0px">天</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="menu2" class="container tab-pane fade"><br>
+                <h3>Other</h3>
+                <p>Please put something on it!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
