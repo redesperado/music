@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
     var pqeTime = dayText + 7;
     $("#pqe").text(pqeTime);
 
-    //单词分页
+//修改内容
 
 
     //鼠标点击事件
