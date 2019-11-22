@@ -29,4 +29,9 @@ public class WordSertviceImpl implements WordService {
     public int addWord(WordBean wordBean) throws Exception {
         return wordDao.insertWord(wordBean);
     }
+
+    @Override
+    public int getWordCounts() throws Exception {
+        return wordDao.selectWordCounts();
+    }
 }

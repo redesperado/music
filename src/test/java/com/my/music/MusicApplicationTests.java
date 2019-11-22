@@ -16,7 +16,7 @@ class MusicApplicationTests {
     MusicService musicService;
 
     @Test
-    void contextLoads() {
+    void contextLoads() throws Exception {
         List<Map<String, Object>>  musicBean = musicService.getMusic();
         for (Map<String, Object> map : musicBean) {
             System.out.println(map);

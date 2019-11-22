@@ -2,6 +2,23 @@
 var a_idx = 0;
 jQuery(document).ready(function($) {
     $("body").click(function(e) {
+
+        //倒计时
+        var nowTime = new Date();
+        var cetTime = new Date("2019-12-14");
+        var time = cetTime.getTime()-nowTime.getTime();
+        var days = time/(24*60*60*1000);
+        var dayText = parseInt(days);
+        $("#cet4").text(dayText);
+        $("#cet6").text(dayText);
+        var pqeTime = dayText + 7;
+        $("#pqe").text(pqeTime);
+
+        //单词分页
+
+
+
+        //鼠标点击事件
         var a = new Array("早上醒来的时候",
             "不知为什么自己在哭",
             "这样的事时不时就会发生",
@@ -15,7 +32,7 @@ jQuery(document).ready(function($) {
         var x = e.pageX,
             y = e.pageY;
         $i.css({
-            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,//元素置顶
             "top": y - 20,
             "left": x,
             "position": "absolute",
@@ -25,22 +42,13 @@ jQuery(document).ready(function($) {
         $("body").append($i);
         $i.animate({
                 "top": y - 180,
-                "opacity": 0
+                "opacity": 0  //透明度变为0
             },
             1500,
             function() {
                 $i.remove();
             });
     });
-    var nowTime = new Date();
-    var cetTime = new Date("2019-12-14");
-    var time = cetTime.getTime()-nowTime.getTime();
-    var days = time/(24*60*60*1000);
-    var dayText = parseInt(days);
-    $("#cet4").text(dayText);
-    $("#cet6").text(dayText);
-    var pqeTime = dayText + 7;
-    $("#pqe").text(pqeTime);
 
 });
 

@@ -24,12 +24,13 @@ public class MusicController {
     public String findMusic(ModelMap modelMap) throws Exception{
         modelMap.addAttribute("getWordInfo",wordService.getWords());
         modelMap.addAttribute("getMusicInfo",musicService.getMusic());
+        modelMap.addAttribute("wordsCount",wordService.getWordCounts());
         return "main.html";
     }
 
     @RequestMapping("/allMusic")
     @ResponseBody
-    public Map getAllMusic(){
+    public Map getAllMusic() throws Exception {
         Map map = new HashMap();
         map.put("allMusic",musicService.getMusic());
         return map;

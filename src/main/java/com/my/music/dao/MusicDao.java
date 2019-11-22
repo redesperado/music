@@ -5,6 +5,11 @@ import com.my.music.bean.MusicBean;
 import java.util.List;
 import java.util.Map;
 
+
+/*
+    音乐DAO
+ */
 public interface MusicDao {
-    public List<Map<String,Object>> getMusic();
+    //获取音乐list
+    public List<Map<String,Object>> getMusic() throws Exception;
 }

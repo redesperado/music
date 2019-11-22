@@ -16,7 +16,7 @@ public class MusicServiceImpl implements MusicService {
     MusicDao musicDao;
 
     @Override
-    public List<Map<String, Object>> getMusic() {
+    public List<Map<String, Object>> getMusic() throws Exception {
         return musicDao.getMusic();
     }
 }

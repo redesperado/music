@@ -9,6 +9,10 @@
     <select id="selectCnByEn" parameterType="String" resultType="com.my.music.bean.WordBean">
         SELECT * FROM words WHERE en = #{en};
     </select>
+
+    <select id="selectWordCounts" resultType="int">
+        SELECT COUNT(*) from words;
+    </select>
     
     <insert id="insertWord" parameterType="com.my.music.bean.WordBean">
         INSERT INTO words (en, properties, cn) VALUES (#{en},#{properties},#{cn});
